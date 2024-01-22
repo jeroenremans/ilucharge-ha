@@ -1,0 +1,344 @@
+# Add following line to configuration.yaml
+# mqtt: !include_dir_merge_named mqtt/ 
+
+
+sensor:
+    - name: "Laadpaal Power"
+      state_topic: ilucharge/device
+      unique_id: ilucharge_device_power
+      object_id: ilucharge_device_power
+      value_template: "{{ value_json.power }}"
+      device_class: energy
+      unit_of_measurement: "w"
+      icon: mdi:pulse
+      device: 
+        identifiers: 1234
+        manufacturer: "Ilucharge"
+        name: "Laadpaal"
+    - name: "Laadpaal State"
+      state_topic: ilucharge/device
+      unique_id: ilucharge_device_state
+      object_id: ilucharge_device_state
+      value_template: "{{ value_json.state }}"
+      icon: mdi:list-status
+      device: 
+        identifiers: 1234
+        manufacturer: "Ilucharge"
+        name: "Laadpaal"
+    - name: "Laadpaal kWh Totaal"
+      state_topic: ilucharge/device
+      unique_id: ilucharge_device_kwh_p
+      object_id: ilucharge_device_kwh_p
+      value_template: "{{ value_json.kwh_p }}"
+      icon: mdi:car-electric
+      unit_of_measurement: 'kWh'
+      device_class: 'energy'
+      device: 
+        identifiers: 1234
+        manufacturer: "Ilucharge"
+        name: "Laadpaal"
+    - name: "Laadpaal kWh Session"
+      state_topic: ilucharge/device
+      unique_id: ilucharge_device_kwh_session
+      object_id: ilucharge_device_kwh_session
+      suggested_display_precision: 2
+      value_template: "{{ value_json.kwh_session }}"
+      icon: mdi:car-electric
+      unit_of_measurement: 'kWh'
+      device_class: 'energy'
+      device: 
+        identifiers: 1234
+        manufacturer: "Ilucharge"
+        name: "Laadpaal"
+    - name: "Laadpaal Time Session"
+      state_topic: ilucharge/device
+      unique_id: ilucharge_device_t_session
+      object_id: ilucharge_device_t_session
+      value_template: "{{ value_json.t_session }}"
+      icon: mdi:timer-outline
+      unit_of_measurement: 's'
+      device_class: 'duration'
+      device: 
+        identifiers: 1234
+        manufacturer: "Ilucharge"
+        name: "Laadpaal"
+    - name: "Laadpaal Time Charging"
+      state_topic: ilucharge/device
+      unique_id: ilucharge_device_t_charging
+      object_id: ilucharge_device_t_charging
+      value_template: "{{ value_json.t_charging }}"
+      icon: mdi:timer-outline
+      unit_of_measurement: 's'
+      device_class: 'duration'
+      device: 
+        identifiers: 1234
+        manufacturer: "Ilucharge"
+        name: "Laadpaal"
+    - name: "Laadpaal Grid Vac L1"
+      state_topic: ilucharge/device
+      unique_id: ilucharge_device_t_grid_vac_l1
+      object_id: ilucharge_device_t_grid_vac_l1
+      value_template: "{{ value_json.grid.Vac[0] }}"
+      icon: mdi:sine-wave
+      unit_of_measurement: 'v'
+      device_class: 'energy'
+      device: 
+        identifiers: 1234
+        manufacturer: "Ilucharge"
+        name: "Laadpaal"
+    - name: "Laadpaal Grid Vac L2"
+      state_topic: ilucharge/device
+      unique_id: ilucharge_device_t_grid_vac_l2
+      object_id: ilucharge_device_t_grid_vac_l2
+      value_template: "{{ value_json.grid.Vac[1] }}"
+      icon: mdi:sine-wave
+      unit_of_measurement: 'v'
+      device_class: 'energy'
+      device: 
+        identifiers: 1234
+        manufacturer: "Ilucharge"
+        name: "Laadpaal"
+    - name: "Laadpaal Grid Vac L3"
+      state_topic: ilucharge/device
+      unique_id: ilucharge_device_t_grid_vac_l3
+      object_id: ilucharge_device_t_grid_vac_l3
+      value_template: "{{ value_json.grid.Vac[2] }}"
+      icon: mdi:sine-wave
+      unit_of_measurement: 'v'
+      device_class: 'energy'
+      device: 
+        identifiers: 1234
+        manufacturer: "Ilucharge"
+        name: "Laadpaal"
+    - name: "Laadpaal Grid Iac L1"
+      state_topic: ilucharge/device
+      unique_id: ilucharge_device_t_grid_iac_l1
+      object_id: ilucharge_device_t_grid_iac_l1
+      value_template: "{{ value_json.grid.Iac[0] }}"
+      icon: mdi:current-ac
+      unit_of_measurement: 'iac'
+      device_class: 'energy'
+      device: 
+        identifiers: 1234
+        manufacturer: "Ilucharge"
+        name: "Laadpaal"
+    - name: "Laadpaal Grid Iac L2"
+      state_topic: ilucharge/device
+      unique_id: ilucharge_device_t_grid_iac_l2
+      object_id: ilucharge_device_t_grid_iac_l2
+      value_template: "{{ value_json.grid.Iac[1] }}"
+      icon: mdi:current-ac
+      unit_of_measurement: 'iac'
+      device_class: 'energy'
+      device: 
+        identifiers: 1234
+        manufacturer: "Ilucharge"
+        name: "Laadpaal"
+    - name: "Laadpaal Grid Iac L3"
+      state_topic: ilucharge/device
+      unique_id: ilucharge_device_t_grid_iac_l3
+      object_id: ilucharge_device_t_grid_iac_l3
+      value_template: "{{ value_json.grid.Iac[2] }}"
+      icon: mdi:current-ac
+      unit_of_measurement: 'iac'
+      device_class: 'energy'
+      device: 
+        identifiers: 1234
+        manufacturer: "Ilucharge"
+        name: "Laadpaal"
+    - name: "Laadpaal Used By"
+      state_topic: ilucharge/srv2app
+      unique_id: ilucharge_dsrv2app_used_by
+      object_id: ilucharge_dsrv2app_used_by
+      value_template: "{{ value_json.used_by }}"
+      icon: mdi:account
+      device: 
+        identifiers: 1234
+        manufacturer: "Ilucharge"
+        name: "Laadpaal"
+    - name: "Laadpaal Naam"
+      state_topic: ilucharge/announce
+      unique_id: ilucharge_announce_name
+      object_id: ilucharge_announce_name
+      value_template: "{{ value_json.name }}"
+      icon: mdi:ev-station
+      device: 
+        identifiers: 1234
+        manufacturer: "Ilucharge"
+        name: "Laadpaal"
+    - name: "Laadpaal State"
+      state_topic: ilucharge/announce
+      unique_id: ilucharge_announce_state
+      object_id: ilucharge_announce_state
+      value_template: "{{ value_json.state }}"
+      icon: mdi:car-electric
+      device: 
+        identifiers: 1234
+        manufacturer: "Ilucharge"
+        name: "Laadpaal"
+    - name: "Laadpaal Http"
+      state_topic: ilucharge/announce
+      unique_id: ilucharge_announce_http
+      object_id: ilucharge_announce_http
+      value_template: "{{ value_json.http }}"
+      icon: mdi:ip
+      device: 
+        identifiers: 1234
+        manufacturer: "Ilucharge"
+        name: "Laadpaal"
+    - name: "Laadpaal RSSI"
+      state_topic: ilucharge/announce
+      unique_id: ilucharge_announce_rssi
+      object_id: ilucharge_announce_rssi
+      value_template: "{{ value_json.rssi }}"
+      icon: mdi:wifi
+      device: 
+        identifiers: 1234
+        manufacturer: "Ilucharge"
+        name: "Laadpaal"
+    - name: "Laadpaal Grid System"
+      state_topic: ilucharge/announce
+      unique_id: ilucharge_announce_grid_system
+      object_id: ilucharge_announce_grid_system
+      value_template: "{{ value_json.grid_system }}"
+      icon: mdi:user
+      device: 
+        identifiers: 1234
+        manufacturer: "Ilucharge"
+        name: "Laadpaal"
+    - name: "Laadpaal Power Max"
+      state_topic: ilucharge/announce
+      unique_id: ilucharge_announce_p_max
+      object_id: ilucharge_announce_p_max
+      value_template: "{{ value_json.p_max }}"
+      unit_of_measurement: 'w'
+      device_class: 'energy'
+      icon: mdi:car-electric
+      device: 
+        identifiers: 1234
+        manufacturer: "Ilucharge"
+        name: "Laadpaal"
+    - name: "Laadpaal Power Min"
+      state_topic: ilucharge/announce
+      unique_id: ilucharge_announce_p_min
+      object_id: ilucharge_announce_p_min
+      value_template: "{{ value_json.p_min }}"
+      unit_of_measurement: 'w'
+      device_class: 'energy'
+      icon: mdi:car-electric
+      device: 
+        identifiers: 1234
+        manufacturer: "Ilucharge"
+        name: "Laadpaal"
+    - name: "Laadpaal Mode"
+      state_topic: ilucharge/announce
+      unique_id: ilucharge_announce_mode
+      object_id: ilucharge_announce_mode
+      value_template: "{{ value_json.mode }}"
+      icon: mdi:car-electric
+      device: 
+        identifiers: 1234
+        manufacturer: "Ilucharge"
+        name: "Laadpaal"
+    - name: "Laadpaal FB Active"
+      state_topic: ilucharge/announce
+      unique_id: ilucharge_announce_fb_active
+      object_id: ilucharge_announce_fb_active
+      value_template: "{{ value_json.fb_active }}"
+      icon: mdi:car-electric
+      device: 
+        identifiers: 1234
+        manufacturer: "Ilucharge"
+        name: "Laadpaal"
+    - name: "Laadpaal ECO Kw"
+      state_topic: ilucharge/local/eco
+      unique_id: ilucharge_local_eco_kw
+      object_id: ilucharge_local_eco_kw
+      value_template: "{{ value_json.eco_kw }}"
+      icon: mdi:car-electric
+      device: 
+        identifiers: 1234
+        manufacturer: "Ilucharge"
+        name: "Laadpaal"
+    - name: "Laadpaal ECO Kw"
+      state_topic: ilucharge/local/eco
+      unique_id: ilucharge_local_eco_total_kwh
+      object_id: ilucharge_local_eco_total_kwh
+      value_template: "{{ value_json.eco_total_kwh }}"
+      icon: mdi:car-electric
+      device: 
+        identifiers: 1234
+        manufacturer: "Ilucharge"
+        name: "Laadpaal"
+number:
+    - name: "Laadpaal Power Manueel"
+      state_topic: ilucharge/announce
+      unique_id: ilucharge_announce_p_man
+      object_id: ilucharge_announce_p_man
+      value_template: "{{ value_json.p_man }}"
+      unit_of_measurement: 'w'
+      device_class: 'energy'
+      icon: mdi:car-electric
+      min: 1380
+      max: 3680
+      step: 230
+      command_topic: ilucharge/server/command
+      command_template: '{"set_p_man" : "{{value}}"}'
+      device: 
+        identifiers: 1234
+        manufacturer: "Ilucharge"
+        name: "Laadpaal"
+    - name: "Laadpaal kwh Eco"
+      state_topic: ilucharge/local/kwh_p_eco
+      unique_id: ilucharge_device_kwh_p_eco
+      object_id: ilucharge_device_kwh_p_eco
+      value_template: "{{ value }}"
+      unit_of_measurement: 'kwh'
+      device_class: 'energy'
+      icon: mdi:sun
+      command_topic: ilucharge/local/kwh_p_eco
+      command_template: '{{value}}'
+      device: 
+        identifiers: 1234
+        manufacturer: "Ilucharge"
+        name: "Laadpaal"
+binary_sensor:
+    - name: "Laadpaal EV Connected"
+      state_topic: ilucharge/device
+      unique_id: ilucharge_device_ev_connected
+      object_id: ilucharge_device_ev_connected
+      value_template: "{{ value_json.ev_connected }}"
+      payload_on: "1"
+      payload_off: "0"
+      icon: mdi:connection
+      device_class: connectivity
+      device: 
+        identifiers: 1234
+        manufacturer: "Ilucharge"
+        name: "Laadpaal"
+    - name: "Laadpaal Used As"
+      state_topic: ilucharge/srv2app
+      unique_id: ilucharge_dsrv2app_used_as
+      object_id: ilucharge_dsrv2app_used_as
+      value_template: "{{ value_json.used_as }}"
+      payload_on: "1"
+      payload_off: "0"
+      device_class: lock
+      icon: mdi:lock
+      device: 
+        identifiers: 1234
+        manufacturer: "Ilucharge"
+        name: "Laadpaal"
+    - name: "Laadpaal Error"
+      state_topic: ilucharge/device
+      unique_id: ilucharge_device_error
+      object_id: ilucharge_device_error
+      value_template: "{{ value_json.error }}"
+      payload_on: "1"
+      payload_off: "0"
+      device_class: problem
+      icon: mdi:alert-circle
+      device: 
+        identifiers: 1234
+        manufacturer: "Ilucharge"
+        name: "Laadpaal"
